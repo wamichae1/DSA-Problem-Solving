@@ -11,10 +11,12 @@ class Solution:
                 current.next = ListNode(list2.val)
                 current = current.next
                 list2 = list2.next
+                
         while list1 != None:
             current.next = ListNode(list1.val)
             current = current.next
             list1 = list1.next
+
         while list2 != None:
             current.next = ListNode(list2.val)
             current = current.next
