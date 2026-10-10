@@ -16,6 +16,7 @@ class Solution:
             result.append(path[:]) # add a copy of the path (snapshot)
 
             for i in range(start, len(nums)):
+                
                 path.append(nums[i]) # Add nums[i] into the subset
 
                 backtrack(i + 1, path) # Build the subset from the next element
