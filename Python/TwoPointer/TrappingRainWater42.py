@@ -1,11 +1,25 @@
 class Solution:
     def trap(self, height: list[int]) -> int:
-        mL, mR = 0,0
+        maxLeft = height[0]
+        maxRight = height[-1] 
         l = 0
         r = len(height) - 1
-
+        water = 0
         while l < r:
-            
+            if height[l] <= height[r]:
+                if maxLeft <= height[l]: 
+                    maxLeft = height[l]
+                else: #if l < r and l < maxLeft
+                    water += maxLeft - height[l]
+                l += 1
+            else:
+                if maxRight <= height[r]:
+                    maxRight = height[r]
+                else: # if r < l and r < maxRight
+                    water += maxRight - height[r]
+                r -= 1
+        return water
+
 
 
 #prefix max list solution, o(n) space
