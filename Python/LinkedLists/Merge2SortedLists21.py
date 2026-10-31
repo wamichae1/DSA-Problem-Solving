@@ -2,6 +2,7 @@ class Solution:
     def mergeTwoLists(self, list1: ListNode | None, list2: ListNode | None) -> ListNode | None:
         temp = ListNode()
         current = temp
+        
         while list1 != None and list2 != None:
             if list1.val < list2.val:
                 current.next = ListNode(list1.val)
