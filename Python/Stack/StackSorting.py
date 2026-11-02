@@ -9,5 +9,20 @@ def sortStack(stack):
             tmpStack.pop()
         tmpStack.append(num)
     return tmpStack
-stack = [23,3,31,98,92,23]
-print(sortStack(stack))
+
+#Recursive
+def recsortStack(stack):
+    if not stack:
+        return stack
+    top = stack.pop()
+    recsortStack(stack)
+    insertInOrder(stack, top)
+    return stack
+
+def insertInOrder(stack, value):
+    if not stack or stack[-1] <= value:
+        stack.append(value)
+        return
+    top = stack.pop()
+    insertInOrder(stack, value)
+    stack.append(top)
